@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/filter';
-import { getFilter} from 'redux/selectors'
+import { getFilter } from 'redux/selectors';
 
 import css from './Filter.module.css';
 
@@ -14,15 +14,15 @@ export const Filter = () => {
 
   return (
     <div>
-    <label className={css.filterLabel}>Find contacts by Name </label>
-    <input
-      className={css.formInput}
-      type="text"
-      placeholder="Enter filter"
-      name="filter"
-      onChange={handleChange}
-      value={filter}
-    />
-  </div>
+      <label className={css.filterLabel}>Find contacts by Name </label>
+      <input
+        className={css.formInput}
+        type="text"
+        placeholder="Enter filter"
+        name="filter"
+        onChange={handleChange}
+        value={filter}
+      />
+    </div>
   );
 };

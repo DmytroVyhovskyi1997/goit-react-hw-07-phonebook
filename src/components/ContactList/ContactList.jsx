@@ -1,6 +1,6 @@
 import css from './ContactsList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact,fetchContacts} from 'redux/operations'
+import { deleteContact, fetchContacts } from 'redux/operations';
 import { getContacts, getFilter } from 'redux/selectors';
 import { useEffect } from 'react';
 
@@ -15,19 +15,16 @@ export const ContactList = () => {
 
   const findContacts = () => {
     const normalizedFilter = filter ? filter.toLowerCase() : '';
-  
 
     if (!contacts) {
       return [];
     }
-  
+
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
   const filteredContacts = findContacts();
-
-
 
   return (
     <ul>
