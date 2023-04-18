@@ -14,13 +14,17 @@ export const ContactList = () => {
   }, [dispatch]);
 
   const findContacts = () => {
-   const normalizedFilter = filter ? filter.toLowerCase() : '';;
+    const normalizedFilter = filter ? filter.toLowerCase() : '';
+  
+
+    if (!contacts) {
+      return [];
+    }
+  
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
-  console.log(findContacts)
-
   const filteredContacts = findContacts();
 
 
