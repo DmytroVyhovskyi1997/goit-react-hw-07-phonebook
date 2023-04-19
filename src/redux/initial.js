@@ -2,28 +2,28 @@ export const handlePending = state => {
   state.isLoading = true;
 };
 
-export const handleRejected = (state, action) => {
+export const handleRejected = (state, {payload}) => {
   state.isLoading = false;
-  state.error = action.payload;
+  state.error = payload;
 };
 
-export const handleFulfilled = (state, action) => {
-  state.isLoading = false;
-  state.error = null;
-  state.items = action.payload;
-};
-
-export const handlePushFulfilled = (state, action) => {
+export const handleFulfilled = (state, {payload}) => {
   state.isLoading = false;
   state.error = null;
-  state.items.push(action.payload);
+  state.items = payload;
 };
 
-export const handleDeleteFulfilled = (state, action) => {
+export const handlePushFulfilled = (state, {payload}) => {
+  state.isLoading = false;
+  state.error = null;
+  state.items.push(payload);
+};
+
+export const handleDeleteFulfilled = (state, {payload}) => {
   state.isLoading = false;
   state.error = null;
   const index = state.items.findIndex(
-    contact => contact.id === action.payload.id
+    contact => contact.id === payload.id
   );
   state.items.splice(index, 1);
 };
